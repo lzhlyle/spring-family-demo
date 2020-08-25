@@ -3,6 +3,7 @@ package com.lzhlyle.spring.demo.bean.factory.demo.bean;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 public class MyTestBean {
     private String testStr = "testStr";
@@ -16,7 +17,8 @@ public class MyTestBean {
     }
 
     public static void main(String[] args) {
-        BeanFactory bf = new XmlBeanFactory(new ClassPathResource("beanFactoryTest.xml"));
+        Resource resource = new ClassPathResource("beanFactoryTest.xml");
+        BeanFactory bf = new XmlBeanFactory(resource);
         MyTestBean bean = (MyTestBean) bf.getBean("myTestBean");
         System.out.println(bean.getTestStr());
     }
