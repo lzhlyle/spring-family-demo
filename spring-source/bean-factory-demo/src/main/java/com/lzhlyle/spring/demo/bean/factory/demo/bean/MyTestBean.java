@@ -1,9 +1,7 @@
 package com.lzhlyle.spring.demo.bean.factory.demo.bean;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MyTestBean {
     private String testStr = "testStr";
@@ -17,8 +15,11 @@ public class MyTestBean {
     }
 
     public static void main(String[] args) {
-        Resource resource = new ClassPathResource("beanFactoryTest.xml");
-        BeanFactory bf = new XmlBeanFactory(resource);
+//        Resource resource = new ClassPathResource("beanFactoryTest.xml");
+//        BeanFactory bf = new XmlBeanFactory(resource);
+
+        ApplicationContext bf = new ClassPathXmlApplicationContext("beanFactoryTest.xml");
+
         MyTestBean bean = (MyTestBean) bf.getBean("myTestBean");
         System.out.println(bean.getTestStr());
     }
