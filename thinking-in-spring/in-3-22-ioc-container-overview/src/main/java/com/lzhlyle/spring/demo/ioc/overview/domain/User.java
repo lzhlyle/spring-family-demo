@@ -4,6 +4,13 @@ public class User {
     private Long id;
     private String name;
 
+    public static User createUser() {
+        User user = new User();
+        user.setId(4L);
+        user.setName("static-user");
+        return user;
+    }
+
     public Long getId() {
         return id;
     }
