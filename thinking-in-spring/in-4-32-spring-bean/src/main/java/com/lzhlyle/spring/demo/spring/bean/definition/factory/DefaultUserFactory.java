@@ -5,6 +5,7 @@ import org.springframework.beans.factory.InitializingBean;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.xml.transform.Source;
 
 public class DefaultUserFactory implements IUserFactory, InitializingBean, DisposableBean {
     @PostConstruct
@@ -33,5 +34,10 @@ public class DefaultUserFactory implements IUserFactory, InitializingBean, Dispo
 
     public void destroyByCustom() {
         System.out.println("Custom destroy: UserFactory Destroying...");
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("UserFactory finalizing...");
     }
 }
