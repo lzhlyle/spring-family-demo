@@ -10,12 +10,4 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>in-3-22-ioc-container-overview</artifactId>
-
-    <dependencies>
-        <!-- Spring IoC 核心依赖 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-    </dependencies>
 </project>

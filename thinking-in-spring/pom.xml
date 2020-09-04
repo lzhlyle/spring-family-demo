@@ -11,6 +11,8 @@
     <modules>
         <module>in-3-22-ioc-container-overview</module>
         <module>in-4-32-spring-bean</module>
+        <module>dependency-lookup</module>
+        <module>in-5-43-dependency-lookup</module>
     </modules>
 
     <properties>

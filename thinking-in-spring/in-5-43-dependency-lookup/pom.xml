@@ -9,14 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>in-4-32-spring-bean</artifactId>
+    <artifactId>in-5-43-dependency-lookup</artifactId>
 
     <dependencies>
-        <!-- 复用 -->
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>in-3-22-ioc-container-overview</artifactId>
             <version>${version}</version>
         </dependency>
     </dependencies>
+
 </project>
