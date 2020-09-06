@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Primary;
 
 import java.util.Arrays;
 
-public class AnnotationDependencySetterInjectionDemo {
+public class AnnotationDependencyConstructorInjectionDemo {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        applicationContext.register(AnnotationDependencySetterInjectionDemo.class);
+        applicationContext.register(AnnotationDependencyConstructorInjectionDemo.class);
 
         BeanDefinitionReader reader = new XmlBeanDefinitionReader(applicationContext);
         String xmlResourcePath = "META-INF/dependency-lookup-context.xml";

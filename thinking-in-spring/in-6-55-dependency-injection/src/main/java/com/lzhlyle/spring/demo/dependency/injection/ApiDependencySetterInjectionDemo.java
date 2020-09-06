@@ -15,7 +15,7 @@ public class ApiDependencySetterInjectionDemo {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
 
         BeanDefinitionReader reader = new XmlBeanDefinitionReader(applicationContext);
-        String xmlResourcePath = "META-INF/dependency-setter-injection.xml";
+        String xmlResourcePath = "META-INF/dependency-lookup-context.xml";
         reader.loadBeanDefinitions(xmlResourcePath);
 
         BeanDefinition beanDefinition = createUserHolderBeanDefinition();
@@ -24,8 +24,6 @@ public class ApiDependencySetterInjectionDemo {
 
         UserHolder userHolder = applicationContext.getBean("userHolder", UserHolder.class);
         System.out.println(userHolder);
-
-        System.out.println(Arrays.toString(applicationContext.getBeanNamesForType(User.class)));
 
         applicationContext.close();
     }
