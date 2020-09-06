@@ -28,7 +28,6 @@ public class AnnotationDependencyConstructorInjectionDemo {
     }
 
     @Bean
-    @Primary
     public UserHolder userHolder(User user) {
         return new UserHolder(user);
     }
