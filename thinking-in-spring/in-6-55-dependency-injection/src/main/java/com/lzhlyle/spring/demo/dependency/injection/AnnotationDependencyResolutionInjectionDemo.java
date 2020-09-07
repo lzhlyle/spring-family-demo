@@ -7,6 +7,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Lazy;
 
+import javax.inject.Inject;
 import java.util.Map;
 import java.util.Optional;
 
@@ -30,6 +31,9 @@ public class AnnotationDependencyResolutionInjectionDemo {
     @Autowired
     private Optional<User> userOptional;
 
+    @Inject
+    private User injectUser;
+
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
 
@@ -47,6 +51,7 @@ public class AnnotationDependencyResolutionInjectionDemo {
         System.out.println(demo.user);
         System.out.println(demo.users);
         System.out.println(demo.userOptional);
+        System.out.println(demo.injectUser);
 
         applicationContext.close();
     }
