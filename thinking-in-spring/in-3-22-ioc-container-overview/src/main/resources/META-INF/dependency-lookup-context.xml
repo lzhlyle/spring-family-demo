@@ -7,6 +7,8 @@
     <bean id="user" class="com.lzhlyle.spring.demo.ioc.overview.domain.User">
         <property name="id" value="16"/>
         <property name="name" value="lyle"/>
+        <property name="city" value="GUANGZHOU"/>
+        <property name="configFileLocation" value="META-INF/user-config.properties"/>
     </bean>
 
     <bean id="superUser" class="com.lzhlyle.spring.demo.ioc.overview.domain.SuperUser" parent="user" primary="true">
