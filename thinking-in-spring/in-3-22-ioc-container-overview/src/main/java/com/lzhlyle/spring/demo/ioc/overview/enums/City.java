@@ -5,5 +5,6 @@ public enum City {
     HANGZHOU,
     BEIJING,
     SHANGHAI,
-    SHENZHEN
+    SHENZHEN,
+    NANNING,
 }
