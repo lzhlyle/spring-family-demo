@@ -18,16 +18,16 @@ public class BeanScopeDemo implements DisposableBean {
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     public static User singletonUser() {
-        return creageUser();
+        return createUser();
     }
 
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public static User prototypeUser() {
-        return creageUser();
+        return createUser();
     }
 
-    private static User creageUser() {
+    private static User createUser() {
         User user = new User();
         user.setId(System.nanoTime());
         return user;
