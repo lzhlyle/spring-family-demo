@@ -54,14 +54,8 @@ public class DependencySourceDemo {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-
-        BeanDefinitionReader reader = new XmlBeanDefinitionReader(applicationContext);
-        String xmlResourcePath = "META-INF/dependency-lookup-context.xml";
-        reader.loadBeanDefinitions(xmlResourcePath);
-
         applicationContext.register(DependencySourceDemo.class);
         applicationContext.refresh();
-
         applicationContext.close();
     }
 }
