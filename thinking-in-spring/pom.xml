@@ -15,6 +15,7 @@
         <module>in-5-43-dependency-lookup</module>
         <module>in-6-55-dependency-injection</module>
         <module>in-7-72-dependency-source</module>
+        <module>in-8-81-bean-scope</module>
     </modules>
 
     <properties>

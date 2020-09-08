@@ -1,18 +1,22 @@
 package com.lzhlyle.spring.demo.ioc.overview.domain;
 
 import com.lzhlyle.spring.demo.ioc.overview.enums.City;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.core.io.Resource;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.Arrays;
 import java.util.List;
 
-public class User {
+public class User implements BeanNameAware {
     private Long id;
     private String name;
     private City city;
     private City[] workCities;
     private List<City> lifeCities;
     private Resource configFileLocation;
+    private transient String beanName;
 
     public static User createUser() {
         User user = new User();
@@ -79,5 +83,20 @@ public class User {
                 ", lifeCities=" + lifeCities +
                 ", configFileLocation=" + configFileLocation +
                 '}';
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("User Bean [" + this.beanName + "]  @PostConstruct");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("User Bean [" + this.beanName + "] @PreDestroy");
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        this.beanName = name;
     }
 }
