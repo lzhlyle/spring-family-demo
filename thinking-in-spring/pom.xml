@@ -16,6 +16,7 @@
         <module>in-6-55-dependency-injection</module>
         <module>in-7-72-dependency-source</module>
         <module>in-8-81-bean-scope</module>
+        <module>in-9-88-bean-lifecycle</module>
     </modules>
 
     <properties>
