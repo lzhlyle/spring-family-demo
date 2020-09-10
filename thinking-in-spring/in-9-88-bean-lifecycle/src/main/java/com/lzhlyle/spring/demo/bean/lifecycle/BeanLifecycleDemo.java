@@ -12,6 +12,8 @@ import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
 public class BeanLifecycleDemo {
     public static void main(String[] args) {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+
+        // 先入先出
         beanFactory.addBeanPostProcessor(new MyInstantiationAwareBeanPostProcessor());
         beanFactory.addBeanPostProcessor(new MyDestructionAwareBeanPostProcessor());
         beanFactory.addBeanPostProcessor(new CommonAnnotationBeanPostProcessor());

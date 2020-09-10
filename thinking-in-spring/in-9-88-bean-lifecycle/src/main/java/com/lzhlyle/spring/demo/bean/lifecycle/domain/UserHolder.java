@@ -7,6 +7,7 @@ import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 public class UserHolder implements
         BeanNameAware,
@@ -14,7 +15,8 @@ public class UserHolder implements
         BeanFactoryAware,
         EnvironmentAware,
         InitializingBean,
-        SmartInitializingSingleton {
+        SmartInitializingSingleton,
+        DisposableBean {
     private final User user;
     private Integer number;
     private String description;
@@ -44,6 +46,23 @@ public class UserHolder implements
     @Override
     public void afterSingletonsInstantiated() {
         this.description = "from afterSingletonsInstantiated";
+        System.out.println(this.description);
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        this.description = "from @PreDestroy";
+        System.out.println(this.description);
+    }
+
+    @Override
+    public void destroy() {
+        this.description = "from DisposableBean::destroy";
+        System.out.println(this.description);
+    }
+
+    private void myDestroy() {
+        this.description = "from myDestroy()";
         System.out.println(this.description);
     }
 
@@ -124,5 +143,4 @@ public class UserHolder implements
     public void setEnvironment(Environment environment) {
         this.enviroment = environment;
     }
-
 }
