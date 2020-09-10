@@ -31,6 +31,7 @@ public class BeanInitializationLifecycleDemo {
         System.out.println(superUser);
 
         UserHolder userHolder = beanFactory.getBean("userHolder", UserHolder.class);
+        beanFactory.preInstantiateSingletons();
         System.out.println(userHolder);
     }
 }

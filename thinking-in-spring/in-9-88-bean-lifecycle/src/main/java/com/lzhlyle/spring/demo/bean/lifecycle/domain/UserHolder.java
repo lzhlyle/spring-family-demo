@@ -7,14 +7,14 @@ import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
-import javax.xml.transform.Source;
 
 public class UserHolder implements
         BeanNameAware,
         BeanClassLoaderAware,
         BeanFactoryAware,
         EnvironmentAware,
-        InitializingBean {
+        InitializingBean,
+        SmartInitializingSingleton {
     private final User user;
     private Integer number;
     private String description;
@@ -38,6 +38,12 @@ public class UserHolder implements
 
     public void init() {
         this.description = "from init";
+        System.out.println(this.description);
+    }
+
+    @Override
+    public void afterSingletonsInstantiated() {
+        this.description = "from afterSingletonsInstantiated";
         System.out.println(this.description);
     }
 
@@ -118,6 +124,5 @@ public class UserHolder implements
     public void setEnvironment(Environment environment) {
         this.enviroment = environment;
     }
-
 
 }
