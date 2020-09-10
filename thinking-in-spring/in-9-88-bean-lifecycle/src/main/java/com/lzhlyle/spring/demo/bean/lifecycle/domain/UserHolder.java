@@ -2,18 +2,19 @@ package com.lzhlyle.spring.demo.bean.lifecycle.domain;
 
 import com.lzhlyle.spring.demo.ioc.overview.domain.User;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanClassLoaderAware;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.*;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
+
+import javax.annotation.PostConstruct;
+import javax.xml.transform.Source;
 
 public class UserHolder implements
         BeanNameAware,
         BeanClassLoaderAware,
         BeanFactoryAware,
-        EnvironmentAware {
+        EnvironmentAware,
+        InitializingBean {
     private final User user;
     private Integer number;
     private String description;
@@ -22,6 +23,23 @@ public class UserHolder implements
     private BeanFactory beanFactory;
     private String beanName;
     private Environment enviroment;
+
+    @PostConstruct
+    public void initPostConstruct() {
+        this.description = "from @PostConstruct";
+        System.out.println(this.description);
+    }
+
+    @Override
+    public void afterPropertiesSet() {
+        this.description = "from afterPropertiesSet";
+        System.out.println(this.description);
+    }
+
+    public void init() {
+        this.description = "from init";
+        System.out.println(this.description);
+    }
 
     public UserHolder(User user) {
         this.user = user;

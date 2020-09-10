@@ -59,6 +59,6 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
             UserHolder userHolder = (UserHolder) bean;
             userHolder.setDescription("from postProcessBeforeInitialization");
         }
-        return null;
+        return bean;
     }
 }
