@@ -9,4 +9,6 @@
         <property name="description" value="this is desc."/>
     </bean>
 
+    <bean class="com.lzhlyle.spring.demo.bean.lifecycle.bean.post.processor.MyInstantiationAwareBeanPostProcessor"/>
+
 </beans>
