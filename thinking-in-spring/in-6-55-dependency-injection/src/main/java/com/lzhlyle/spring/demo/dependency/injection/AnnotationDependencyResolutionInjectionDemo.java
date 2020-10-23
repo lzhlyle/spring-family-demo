@@ -2,6 +2,7 @@ package com.lzhlyle.spring.demo.dependency.injection;
 
 import com.lzhlyle.spring.demo.dependency.injection.annotation.InjectedUser;
 import com.lzhlyle.spring.demo.dependency.injection.annotation.MyAutowired;
+import com.lzhlyle.spring.demo.ioc.overview.domain.SuperUser;
 import com.lzhlyle.spring.demo.ioc.overview.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
@@ -9,10 +10,12 @@ import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import java.util.Map;
 import java.util.Optional;
@@ -22,7 +25,7 @@ public class AnnotationDependencyResolutionInjectionDemo {
     @Lazy
     private User lazyUser;
 
-    @Autowired
+    @Resource
     private User user;
     // DependencyDescriptor:
     // 必须 eager = true
@@ -61,7 +64,7 @@ public class AnnotationDependencyResolutionInjectionDemo {
         System.out.println(demo.users);
         System.out.println(demo.userOptional);
         System.out.println(demo.injectUser);
-        System.out.println(demo.customInjectedUser);
+        System.out.println("customInjectedUser: " + demo.customInjectedUser);
 
         applicationContext.close();
     }
@@ -78,7 +81,7 @@ public class AnnotationDependencyResolutionInjectionDemo {
 //    }
 
     @Bean
-    @Order(Ordered.LOWEST_PRECEDENCE - 3)
+//    @Order(Ordered.LOWEST_PRECEDENCE - 3)
     public static AutowiredAnnotationBeanPostProcessor beanPostProcessor() {
         AutowiredAnnotationBeanPostProcessor beanPostProcessor = new AutowiredAnnotationBeanPostProcessor();
         beanPostProcessor.setAutowiredAnnotationType(InjectedUser.class);
