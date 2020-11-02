@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.lzhlyle.spring.demo.studyclientstarter.config.StudyClientAutoConfiguration
