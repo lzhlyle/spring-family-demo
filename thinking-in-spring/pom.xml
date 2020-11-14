@@ -17,6 +17,8 @@
         <module>in-7-72-dependency-source</module>
         <module>in-8-81-bean-scope</module>
         <module>in-9-88-bean-lifecycle</module>
+        <module>in-10-107-configuratoin-metadata</module>
+        <module>in-10-107-configuration-metadata</module>
     </modules>
 
     <properties>
